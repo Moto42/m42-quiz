@@ -2,6 +2,7 @@
   "name": "m42-quiz",
   "version": "1.0.0",
   "description": "",
+  "repository": "github:moto42/m42-quiz",
   "main": "server.js",
   "scripts": {
     "test": "cls &&jest",
