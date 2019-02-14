@@ -1,5 +1,5 @@
 {
-  "title"  :"Test Quize",
+  "title"  :"Test Quiz",
   "blurb"  :"The example quiz to make sure this thing works.",
   "results": {
     "type A" : {
@@ -28,7 +28,7 @@
           "results": [
             "type A"
           ]
-        }
+        },
         {
           "answer": "B-like",
           "results": [
@@ -56,7 +56,7 @@
           "results": [
             "type A"
           ]
-        }
+        },
         {
           "answer": "B-like",
           "results": [
@@ -84,7 +84,7 @@
           "results": [
             "type A"
           ]
-        }
+        },
         {
           "answer": "B-like",
           "results": [
