@@ -1,0 +1,108 @@
+{
+  "title"  :"Test Quize",
+  "blurb"  :"The example quiz to make sure this thing works.",
+  "results": {
+    "type A" : {
+      "name"       : "type A",
+      "description": "Type A's are very A-like"
+    },
+    "type B" : {
+      "name"       : "type B",
+      "description": "Type B's are very B-like"
+    },
+    "type C" : {
+      "name"       : "type C",
+      "description": "Type C's are very C-like"
+    },
+    "type D" : {
+      "name"       : "type D",
+      "description": "Type D's are very D-like"
+    }
+  },
+  "questions": [
+    {
+      "question": "This is the first question.",
+      "answers" : [
+        {
+          "answer": "A-like",
+          "results": [
+            "type A"
+          ]
+        }
+        {
+          "answer": "B-like",
+          "results": [
+            "type B"
+          ]
+        },
+        {
+          "answer": "A-Like and B-like",
+          "results": [
+            "type A",
+            "type B"
+          ]
+        },
+        {
+          "answer": "None of the above.",
+          "results": []
+        }
+      ]
+    },
+    {
+      "question": "This is the second question.",
+      "answers" : [
+        {
+          "answer": "A-like",
+          "results": [
+            "type A"
+          ]
+        }
+        {
+          "answer": "B-like",
+          "results": [
+            "type B"
+          ]
+        },
+        {
+          "answer": "A-Like and B-like",
+          "results": [
+            "type A",
+            "type B"
+          ]
+        },
+        {
+          "answer": "None of the above.",
+          "results": []
+        }
+      ]
+    },
+    {
+      "question": "This is the third question.",
+      "answers" : [
+        {
+          "answer": "A-like",
+          "results": [
+            "type A"
+          ]
+        }
+        {
+          "answer": "B-like",
+          "results": [
+            "type B"
+          ]
+        },
+        {
+          "answer": "A-Like and B-like",
+          "results": [
+            "type A",
+            "type B"
+          ]
+        },
+        {
+          "answer": "None of the above.",
+          "results": []
+        }
+      ]
+    }
+  ]
+}
