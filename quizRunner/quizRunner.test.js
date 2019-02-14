@@ -3,6 +3,11 @@ const quizRunner = require('./quizRunner');
 
 describe("Unit Tests", () => {
 
+  test("setDocTitle", () => {
+    document.title = "wrong title";
+    quizRunner.setDocTitle('correct title');
+    expect(document.title).toBe('correct title');
+  });
   test("loadQuiz", async () => {
     const quiz = quizRunner.loadQuiz('testQuiz');
     expect(quiz).toBeDefined();
@@ -31,11 +36,12 @@ describe("Unit Tests", () => {
     quizRunner.setBlurb('correct blurb');
     expect($('#quizBlurb').text()).toBe('correct blurb');
   });
-  test("setQuestion", () => {
+  test("setQuestion", ()   => {
     document.body.innerHTML =
       '<div id="question">wrong quetion</div>';
     quizRunner.setQuestion('correct quetion');
     expect($('#question').text()).toBe('correct quetion');
   });
-
+  test.todo("createAnswer");
+  test.todo('populateAnswers');
 });
