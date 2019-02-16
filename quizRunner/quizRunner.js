@@ -8,9 +8,9 @@ util.objectToArray = function (obj) {
   return arr;
 };
 
-const quizRunner = {};
 let quiz;
 
+const quizRunner = {};
 quizRunner.clickAnswer      =       function (e)            {
   const results  = $(e.target).data('results') ? $(e.target).data('results').split(',') : [];
   results.forEach((item) => {
@@ -81,7 +81,11 @@ quizRunner.populateQuiz     = async function (quizID)       {
   quizRunner.setDocTitle(quiz.title);
   quizRunner.setBlurb(quiz.blurb);
   quizRunner.displayQuestion(quiz.questions[quiz.currentQuestion]);
-  quizRunner.startQuiz();
+  quizRunner.startButtonOn();
+};
+quizRunner.startButtonOn   =       function ()              {
+  $('#start').prop('disabled', false);
+  $('#start').click(quizRunner.startQuiz);
 };
 quizRunner.fillInResults    =       function (results)      {
   const array = util.objectToArray(results);
@@ -97,7 +101,7 @@ quizRunner.displayResults   =       function ()             {
   $('#result').removeClass('hide');
 };
 quizRunner.startQuiz        =       function ()             {
-  $("#quizBlurb").addClass('hide');
+  $("#introduction").addClass('hide');
   $("#question").removeClass('hide');
 };
 
