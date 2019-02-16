@@ -1,30 +1,81 @@
-body {
-
+/* Delete Me */
+div { /* TODO: Delete this testing code */
+  border-style: dashed hidden dashed hidden;
+  border-width: 1px;
 }
-button {}
 
+body {
+  background-color: white;
+  font-size: 1.5rem;
+}
+button {
+  border-radius: 20%/50%;
+  border-style: none;
+  font-size: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: skyblue;
+}
+button:disabled {
+  background-color: lightsteelblue;
+  color: gainsboro;
+  text-decoration: line-through;
+  text-decoration-color: black;
+  text-decoration-style: wavy;
+}
+div {
+  border-color: gainsboro;
+}
 /* the quiz itself */
 #quizTainer {
-  border-style: solid;
+  background-color: ghostwhite;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: .5rem;
   max-width: 8in;
   margin-left: auto;
   margin-right: auto;
 }
 #quizTitle {}
 /* indroduction  panel*/
-#introduction {}
+#introduction {
+  display: flex;
+  flex-direction: column;
+}
 #quizBlurb {}
-#start {}
+#start {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* question panel */
-#question {}
-#questionText {}
-#answers {}
-.answer
+#question {
+}
+#questionText {
+  font-size: 2rem;
+  border-style: none none none solid;
+  border-color: skyblue;
+  border-width: thick;
+}
+#answers {
+  margin-left: 1rem;
+}
+.answer {
+  color: black;
+  transition: color .5s;
+}
+.answer::before {
+  content: "• " ;
+}
+.answer:hover {
+  color: midnightblue;
+}
+
 /* result panel */
 #result {}
 #resultTitle {}
 #resultBlurb {}
 
-.hide {
+.hide { 
   display: none;
 }
