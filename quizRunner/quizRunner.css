@@ -38,10 +38,7 @@ div {
 }
 #quizTitle {}
 /* indroduction  panel*/
-#introduction {
-  display: flex;
-  flex-direction: column;
-}
+#introduction {}
 #quizBlurb {}
 #start {
   margin-left: auto;
@@ -76,6 +73,11 @@ div {
 #resultTitle {}
 #resultBlurb {}
 
-.hide { 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.hide {
   display: none;
 }
