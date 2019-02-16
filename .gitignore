@@ -5,6 +5,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+#linter/hinter config files.
+.jshintrc
+
 # Runtime data
 pids
 *.pid
