@@ -3,9 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Quiz Display</title>
   </head>
   <body>
-
+    <link rel="stylesheet" href="quizRunner.css">
+    <h1 id="quizTitle">Loading Quiz</h1>
+    <p id="quizBlurb">
+      Your quiz is being prepared and will be ready soon.
+    </p>
+    <div id="question" class="hide">
+      <p id="questionText">
+        Default Question Text
+      </p>
+      <div id="answers">
+        <div class="answer" data-results="type-A type-B">
+          Type-AB
+        </div>
+        <div class="answer" data-results="type-B type-C">
+          Type-BC
+        </div>
+      </div>
+    </div>
+    <div id="result" class="hide">
+      <h2 id="resultTitle">Your Result!</h2>
+      <p id="resultBlurb">Placeholder text you should never see.</p>
+    </div>
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous">
+    </script>
+    <script src="./quizRunner.js" charset="utf-8"></script>
   </body>
 </html>
