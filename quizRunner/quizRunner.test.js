@@ -1,10 +1,10 @@
 const $ = require('jquery');
-const quizRunner = require('./quizRunner');
 
 describe("Unit Tests", () => {
 
   test("setDocTitle", () => {
     document.title = "wrong title";
+    require('./quizRunner');
     quizRunner.setDocTitle('correct title');
     expect(document.title).toBe('correct title');
   });
@@ -27,6 +27,8 @@ describe("Unit Tests", () => {
   test("setTitle", () => {
     document.body.innerHTML =
       '<div id="quizTitle">wrong title</div>';
+    require('jquery');
+    require('./quizRunner');
     quizRunner.setTitle('correct title');
     expect($('#quizTitle').text()).toBe('correct title');
   });
