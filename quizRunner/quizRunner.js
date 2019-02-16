@@ -70,7 +70,7 @@ quizRunner.nextQuestion     =       function ()             {
   }
 };
 quizRunner.loadQuiz         = async function (quizID)       {
-  const quiz = await fetch('quizes/testQuiz.json').then(res =>res.json());
+  const quiz = await fetch(`quizes/${quizID}.json`).then(res =>res.json());
   return quiz;
 };
 quizRunner.populateQuiz     = async function (quizID)       {
@@ -107,4 +107,4 @@ quizRunner.startQuiz        =       function ()             {
 
 
 const quizID = quizRunner.getQuizID();
-quizRunner.populateQuiz(quiz,quizID);
+quizRunner.populateQuiz(quizID);
