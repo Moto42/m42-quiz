@@ -1,22 +1,23 @@
 {
+  "quizID" : "testQuiz",
   "title"  :"Test Quiz",
   "blurb"  :"The example quiz to make sure this thing works.",
   "results": {
     "type A" : {
-      "name"       : "type A",
-      "description": "Type A's are very A-like"
+      "name"       : "Type A",
+      "description": "You are a Type A. Type A's are very A-like and enjoy A type activities, such as Aing."
     },
     "type B" : {
-      "name"       : "type B",
-      "description": "Type B's are very B-like"
+      "name"       : "Type B",
+      "description": "You are a Type B. Type B's are very B-like and enjoy B type activities, such as Bing."
     },
     "type C" : {
-      "name"       : "type C",
-      "description": "Type C's are very C-like"
+      "name"       : "Type C",
+      "description": "You are a Type C. Type C's are very C-like and enjoy C type activities, such as Cing."
     },
     "type D" : {
-      "name"       : "type D",
-      "description": "Type D's are very D-like"
+      "name"       : "Type D",
+      "description": "You are a Type D. Type D's are very D-like and enjoy D type activities, such as Ding."
     }
   },
   "questions": [
