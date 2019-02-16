@@ -1,3 +1,30 @@
+body {
+
+}
+button {}
+
+/* the quiz itself */
+#quizTainer {
+  border-style: solid;
+  max-width: 8in;
+  margin-left: auto;
+  margin-right: auto;
+}
+#quizTitle {}
+/* indroduction  panel*/
+#introduction {}
+#quizBlurb {}
+#start {}
+/* question panel */
+#question {}
+#questionText {}
+#answers {}
+.answer
+/* result panel */
+#result {}
+#resultTitle {}
+#resultBlurb {}
+
 .hide {
   display: none;
 }
