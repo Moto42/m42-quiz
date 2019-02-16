@@ -3,30 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quizRunner.css">
     <title>Quiz Display</title>
   </head>
   <body>
-    <link rel="stylesheet" href="quizRunner.css">
-    <h1 id="quizTitle">Loading Quiz</h1>
-    <p id="quizBlurb">
-      Your quiz is being prepared and will be ready soon.
-    </p>
-    <div id="question" class="hide">
-      <p id="questionText">
-        Default Question Text
-      </p>
-      <div id="answers">
-        <div class="answer" data-results="type-A type-B">
-          Type-AB
-        </div>
-        <div class="answer" data-results="type-B type-C">
-          Type-BC
+    <div id="quizTainer">
+      <h1 id="quizTitle">Loading Quiz</h1>
+      <div id="introduction">
+        <p id="quizBlurb">
+          Your quiz is being prepared and will be ready soon.
+        </p>
+        <button type="button" id="start" disabled>Begin</button>
+      </div>
+      <div id="question" class="hide">
+        <p id="questionText">
+          Default Question Text
+        </p>
+        <div id="answers">
+          <div class="answer" data-results="type-A type-B">
+            Placeholder Answer
+          </div>
+          <div class="answer" data-results="type-B type-C">
+            Do not click. This is the answer that keeps the moon from falling.
+          </div>
         </div>
       </div>
-    </div>
-    <div id="result" class="hide">
-      <h2 id="resultTitle">Your Result!</h2>
-      <p id="resultBlurb">Placeholder text you should never see.</p>
+      <div id="result" class="hide">
+        <h2 id="resultTitle">Your Result!</h2>
+        <p id="resultBlurb">Placeholder text you should never see.</p>
+      </div>
     </div>
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
