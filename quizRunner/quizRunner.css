@@ -1,20 +1,16 @@
-/* Delete Me */
-div { /* TODO: Delete this testing code */
-  border-style: dashed hidden dashed hidden;
-  border-width: 1px;
-}
 
 body {
   background-color: white;
   font-size: 1.5rem;
 }
 button {
+  background-color: lightsteelblue;
+  cursor: pointer;
   border-radius: 20%/50%;
   border-style: none;
   font-size: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: skyblue;
 }
 button:disabled {
   background-color: lightsteelblue;
@@ -28,7 +24,6 @@ div {
 }
 /* the quiz itself */
 #quizTainer {
-  background-color: ghostwhite;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: .5rem;
@@ -58,14 +53,16 @@ div {
   margin-left: 1rem;
 }
 .answer {
+  cursor: pointer;
   color: black;
-  transition: color .5s;
+  transition: color .25s, background-color .25s;
 }
 .answer::before {
   content: "• " ;
 }
 .answer:hover {
-  color: midnightblue;
+  background-color: whitesmoke;
+  color: navy;
 }
 
 /* result panel */
