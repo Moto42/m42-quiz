@@ -1,20 +1,17 @@
 
-const util = {};
-util.objectToArray = function (obj) {
+const quizRunner = {};
+
+quizRunner.objectToArray    =       function (obj)          {
   let arr = [];
   for(let i in obj) {
     arr.push(obj[i]);
   }
   return arr;
 };
-
-let quiz;
-
-const quizRunner = {};
 quizRunner.clickAnswer      =       function (e)            {
   const results  = $(e.target).data('results') ? $(e.target).data('results').split(',') : [];
   results.forEach((item) => {
-    quiz.results[item].score = quiz.results[item].score + 1;
+    quizRunner.quiz.results[item].score = quizRunner.quiz.results[item].score + 1;
   });
   quizRunner.nextQuestion();
 };
@@ -55,40 +52,41 @@ quizRunner.displayQuestion  =       function (question)     {
   quizRunner.populateAnswers(question.answers);
 };
 quizRunner.initializeScores =       function ()             {
-  for(let i in quiz.results){
-    quiz.results[i].score = 0;
+  for(let i in quizRunner.quiz.results){
+    quizRunner.quiz.results[i].score = 0;
   }
 };
 quizRunner.nextQuestion     =       function ()             {
-  quiz.currentQuestion = quiz.currentQuestion + 1;
-  if (quiz.currentQuestion === quiz.questions.length) {
+  quizRunner.quiz.currentQuestion = quizRunner.quiz.currentQuestion + 1;
+  if (quizRunner.quiz.currentQuestion === quizRunner.quiz.questions.length) {
     quizRunner.displayResults();
     return;
   }
   else {
-    quizRunner.displayQuestion(quiz.questions[quiz.currentQuestion]);
+    quizRunner.displayQuestion(quizRunner.quiz.questions[quizRunner.quiz.currentQuestion]);
   }
 };
 quizRunner.loadQuiz         = async function (quizID)       {
   const quiz = await fetch(`quizes/${quizID}.json`).then(res =>res.json());
   return quiz;
 };
-quizRunner.populateQuiz     = async function (quizID)       {
-  quiz = await quizRunner.loadQuiz(quizID);
-  quiz.currentQuestion = 0;
+quizRunner.populateQuiz     = async function ()             {
+  const quizID = quizRunner.getQuizID();
+  quizRunner.quiz = await quizRunner.loadQuiz(quizID);
+  quizRunner.quiz.currentQuestion = 0;
   quizRunner.initializeScores();
-  quizRunner.setTitle(quiz.title);
-  quizRunner.setDocTitle(quiz.title);
-  quizRunner.setBlurb(quiz.blurb);
-  quizRunner.displayQuestion(quiz.questions[quiz.currentQuestion]);
+  quizRunner.setTitle(quizRunner.quiz.title);
+  quizRunner.setDocTitle(quizRunner.quiz.title);
+  quizRunner.setBlurb(quizRunner.quiz.blurb);
+  quizRunner.displayQuestion(quizRunner.quiz.questions[quizRunner.quiz.currentQuestion]);
   quizRunner.startButtonOn();
 };
-quizRunner.startButtonOn   =       function ()              {
+quizRunner.startButtonOn    =       function ()             {
   $('#start').prop('disabled', false);
   $('#start').click(quizRunner.startQuiz);
 };
 quizRunner.fillInResults    =       function (results)      {
-  const array = util.objectToArray(results);
+  const array = quizRunner.objectToArray(results);
   const sortedArray = [...array].sort((a, b) => b.score - a.score);
   const resultTitle = sortedArray[0].name;
   const resultBlurb =  sortedArray[0].description;
@@ -97,14 +95,10 @@ quizRunner.fillInResults    =       function (results)      {
 };
 quizRunner.displayResults   =       function ()             {
   $('#question').addClass('hide');
-  quizRunner.fillInResults(quiz.results);
+  quizRunner.fillInResults(quizRunner.quiz.results);
   $('#result').removeClass('hide');
 };
 quizRunner.startQuiz        =       function ()             {
   $("#introduction").addClass('hide');
   $("#question").removeClass('hide');
 };
-
-
-const quizID = quizRunner.getQuizID();
-quizRunner.populateQuiz(quizID);
