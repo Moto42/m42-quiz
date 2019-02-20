@@ -102,3 +102,5 @@ quizRunner.startQuiz        =       function ()             {
   $("#introduction").addClass('hide');
   $("#question").removeClass('hide');
 };
+
+export default quizRunner;
