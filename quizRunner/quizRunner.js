@@ -15,8 +15,10 @@ quizRunner.populateQuiz     = async function ()             {
 quizRunner.getQuizID        =       function ()             {
   return window.location.search.split('?')[1];
 };
-quizRunner.loadQuiz         = async function (quizID)       {
-  const quiz = await fetch(`quizes/${quizID}.json`).then(res =>res.json());
+quizRunner.loadQuiz         = async function (quizID, fetchInject){
+  if(fetchInject) fetch = fetchInject;
+  const URL = "quizes/"+quizID+".json";
+  const quiz = await fetch(URL).then(res =>res.json());
   return quiz;
 };
 quizRunner.initializeScores =       function ()             {
@@ -103,4 +105,5 @@ quizRunner.startQuiz        =       function ()             {
   $("#question").removeClass('hide');
 };
 
-export default quizRunner;
+if(typeof module !== 'undefined') module.exports = quizRunner;
+else window.quizRunner = quizRunner;
