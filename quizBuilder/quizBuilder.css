@@ -15,6 +15,12 @@
   display : inline-block;
 }
 
+.voteHeader {
+
+  transform-origin: center left;
+  transform: rotate(.90turn);
+}
+
 #qTitle {
   font-size : 2rem;
 }
