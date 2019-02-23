@@ -40,9 +40,12 @@ quizBuilder.addNewResult    = (e)          => {
   quizBuilder.resultsCount = quizBuilder.resultsCount + 1;
   const resultID = `resultid${quizBuilder.resultsCount}`;
   $('#qResultsList').append(quizBuilder.newResultNode(resultID));
-  // TODO: Add result to the #qQuestionsHeader
+  //Add result to the #qQuestionsHeader
   $('#qQuestionsHeader').append(quizBuilder.newVoteHeader(resultID));
-  // TODO: add new votbox to each question
+  // Add new votbox to each question
+  $('.question').each((i, e) => {
+    quizBuilder.addVoteBox(resultID, $(e));
+  });
 };
 quizBuilder.addNewQuestion  = (e)          => {
   e.preventDefault();
