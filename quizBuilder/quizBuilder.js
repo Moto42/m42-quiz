@@ -14,6 +14,7 @@ quizBuilder.newResultNode   = (resultID)     => {
   node.find('.removeResult').click(quizBuilder.removeResult);
   return node;
 };
+// BUG: question nodes are not question nodes. They are asnwer nodes
 quizBuilder.newQuestionNode = ()             => {
   let newNode = $(
     `<tr class="question">
