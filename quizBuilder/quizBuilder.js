@@ -48,11 +48,11 @@ quizBuilder.addNewQuestion  = (e)          => {
   e.preventDefault();
   const newNode = quizBuilder.newQuestionNode();
   $('#qQuestionsList').append(newNode);
-  $('.result').each((i,e) => quizBuilder.addVoteBox(e,newNode));
+  $('.result').each((i,e) => quizBuilder.addVoteBox($(e).data('resultid'),newNode));
 };
-quizBuilder.addVoteBox      = (e, newNode) => {
-  const resultID = $(e).data('resultid') || 'none';
-  newNode.append( $(
+quizBuilder.addVoteBox      = (id, question) => {
+  const resultID = id || 'none';
+  question.append( $(
     `<td>
       <input
         type="checkbox"
