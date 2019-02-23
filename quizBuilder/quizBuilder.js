@@ -5,7 +5,7 @@ quizBuilder.resultsCount    = 0;
 
 quizBuilder.newResultNode   = (resultID)   => {
   return (
-    `<div class="result" data-resultID="resultID${resultID}">
+    `<div class="result" data-resultID="${resultID}">
     <input type="text" class="rName">
     <button class="removeResult">X</button>
     <textarea name="" id="" cols="30" rows="10" class="rBlurb"></textarea>
@@ -21,6 +21,13 @@ quizBuilder.newQuestionNode = ()           => {
   );
   return newNode;
 };
+quizBuilder.newVoteHeader   = (resultID)   => {
+  return(`
+    <td class="voteHeader" data-resultid=${resultID}>
+      ${resultID}
+    </td>
+  `);
+};
 
 quizBuilder.inializeBuilder = ()           => {
   //add event to the #newResult button
@@ -31,7 +38,11 @@ quizBuilder.inializeBuilder = ()           => {
 quizBuilder.addNewResult    = (e)          => {
   e.preventDefault();
   quizBuilder.resultsCount = quizBuilder.resultsCount + 1;
-  $('#qResultsList').append(quizBuilder.newResultNode(quizBuilder.resultsCount));
+  const resultID = `resultid${quizBuilder.resultsCount}`;
+  $('#qResultsList').append(quizBuilder.newResultNode(resultID));
+  // TODO: Add result to the #qQuestionsHeader
+  $('#qQuestionsHeader').append(quizBuilder.newVoteHeader(resultID));
+  // TODO: add new votbox to each question
 };
 quizBuilder.addNewQuestion  = (e)          => {
   e.preventDefault();
