@@ -8,25 +8,49 @@
   </head>
   <body>
     <div id="buildTainer">
-      <div id="buildButtons">
-        <button id="newQuestion">New Question</button>
-        <button id="help"       >help        </button>
-      </div>
       <div id="quizBuilder">
-        <div id="qIntro">
+        <div id="qIntro" class="flex-column">
           <input type="text" name="" id="qTitle">
           <textarea name="" id="qBlurb" cols="30" rows="10"></textarea>
         </div>
       </div>
       <div id="qResults">
         <button id="newResult"  >New Result  </button>
-        <div class="result">
-          <input type="text" class="rName">
-          <button class="removeResult">X</button>
-          <textarea name="" id="" cols="30" rows="10" class="rBlurb"></textarea>
+        <div id="qResultsList">
         </div>
       </div>
-    </div>
+      <div id="qQuestions" class="flex-column">
+        <button id="newQuestion">New Question</button>
+        <table>
+          <thead>
+            <tr>
+              <td class="questions">questions</td>
+            </tr>
+          </thead>
+          <tbody id="qQuestionsList">
 
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script
+  			  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  			  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  			  crossorigin="anonymous">
+    </script>
+    <script src="./quizBuilder.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      quizBuilder.inializeBuilder();
+    </script>
   </body>
 </html>
+
+<!-- Reference info for future dev -->
+
+<!-- Empty .result
+<div class="result">
+  <input type="text" class="rName">
+  <button class="removeResult">X</button>
+  <textarea name="" id="" cols="30" rows="10" class="rBlurb"></textarea>
+</div>
+-->
