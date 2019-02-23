@@ -1,3 +1,20 @@
+.flex-column {
+  display : flex;
+  flex-direction : column;
+}
+.wrap {
+  flex-wrap : wrap;
+}
+
+.result {
+  display : flex;
+  flex-direction : column;
+  flex-wrap : wrap;
+}
+.removeResult {
+  display : inline-block;
+}
+
 #qTitle {
-  font-size: 2rem;
+  font-size : 2rem;
 }
