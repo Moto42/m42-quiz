@@ -46,13 +46,13 @@ quizBuilder.addNewResult    = (e)          => {
 };
 quizBuilder.addNewQuestion  = (e)          => {
   e.preventDefault();
-  const newNode = $('#qQuestionsList');
-  newNode.append(quizBuilder.newQuestionNode);
+  const newNode = quizBuilder.newQuestionNode();
+  $('#qQuestionsList').append(newNode);
   $('.result').each((i,e) => quizBuilder.addVoteBox(e,newNode));
 };
 quizBuilder.addVoteBox      = (e, newNode) => {
   const resultID = $(e).data('resultid') || 'none';
-  newNode.find('.question').append( $(
+  newNode.append( $(
     `<td>
       <input
         type="checkbox"
