@@ -14,10 +14,9 @@ quizBuilder.newResultNode   = (resultID)     => {
   node.find('.removeResult').click(quizBuilder.removeResult);
   return node;
 };
-// BUG: question nodes are not question nodes. They are asnwer nodes
-quizBuilder.newQuestionNode = ()             => {
+quizBuilder.newAnswerNode   = ()             => {
   let newNode = $(
-    `<tr class="question">
+    `<tr class="answer">
     <td class="questionText">Test</td>
     </tr>`
 
@@ -30,6 +29,27 @@ quizBuilder.newVoteHeader   = (resultID)     => {
       ${resultID}
     </td>
   `);
+};
+quizBuilder.newQuestionNode = ()             => {
+  const button = $(`<button>New Answer</button>`)
+    .click(quizBuilder.addNewAnswer);
+  const node = $( `<div class="question">
+    <textarea class=questionText></textarea>
+    <div class="answers">
+    <table>
+      <thead>
+        <tr class="qAnswersHeader">
+          <td class="answers">Answers</td>
+        </tr>
+      </thead>
+      <tbody class="qAnswersList">
+
+      </tbody>
+    </table>
+    </div>
+  </div>`);
+  node.prepend(button);
+  return node;
 };
 
 quizBuilder.inializeBuilder = ()             => {
@@ -44,18 +64,28 @@ quizBuilder.addNewResult    = (e)            => {
   const resultID = `resultid${quizBuilder.resultsCount}`;
   const resultNode = quizBuilder.newResultNode(resultID);
   $('#qResultsList').append(resultNode);
-  //Add result to the #qQuestionsHeader
-  $('#qQuestionsHeader').append(quizBuilder.newVoteHeader(resultID));
-  // Add new votbox to each question
+  // For each question...
   $('.question').each((i, e) => {
-    quizBuilder.addVoteBox(resultID, $(e));
+    //Add result to the #qQuestionsHeader
+    $(e).find('.qAnswersList').append(quizBuilder.newVoteHeader(resultID));
+    // Add new votebox to each answer
+    $(e).find('.answer').each((i,e) =>{
+      console.log('pants')
+      quizBuilder.addVoteBox(resultID, $(e));
+    });
   });
+};
+quizBuilder.addNewAnswer    = (e)            => {
+  e.preventDefault();
+  const newNode = quizBuilder.newAnswerNode();
+  const answerList = $(e.target).parent().find('.qAnswersList');
+  answerList.append(newNode);
+  $('.result').each((i,e) => quizBuilder.addVoteBox($(e).data('resultid'),newNode));
 };
 quizBuilder.addNewQuestion  = (e)            => {
   e.preventDefault();
-  const newNode = quizBuilder.newQuestionNode();
-  $('#qQuestionsList').append(newNode);
-  $('.result').each((i,e) => quizBuilder.addVoteBox($(e).data('resultid'),newNode));
+  const newQuestion = quizBuilder.newQuestionNode;
+  $('#qQuestions').append(newQuestion);
 };
 quizBuilder.addVoteBox      = (id, question) => {
   const resultID = id || 'none';
