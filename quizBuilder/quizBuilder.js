@@ -70,7 +70,6 @@ quizBuilder.addNewResult    = (e)            => {
     $(e).find('.qAnswersList').append(quizBuilder.newVoteHeader(resultID));
     // Add new votebox to each answer
     $(e).find('.answer').each((i,e) =>{
-      console.log('pants')
       quizBuilder.addVoteBox(resultID, $(e));
     });
   });
